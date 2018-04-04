@@ -1,13 +1,13 @@
-/* Algorithm BFS
+/* Algorithm DFS
 ======================= SUMMARY =======================
 graph ----------->  grafo em forma de lista de adjacencia 
 current_vertex -->  vertice atual da fila
-visited --------->  vetor para identificar os vertices visitados, sendo para white (2) ele ainda nao foi descoberto, gray (1) ele ja foi descoberto,
-					mas os seus descendentes nao foram e black (0) para quando todos os seus descendentes ja foram visitados   
+visited --------->  vetor para identificar os vertices visitados, sendo para white (2) ele ainda nao foi descoberto, grey (1) ele ja foi
+		    descoberto, mas os seus descendentes nao foram e black (0) para quando todos os seus descendentes ja foram visitados   
 start ----------->  vertice inicial
-predecessor ----->  É o vertice antecessor ou pai do vertice que esta sendo descoberto
-discovery ------->  É o momento no qual o vertice é descoberto
-finish ---------->  É o tempo de termino da descoberta do vertice e dos seus descendentes
+predecessor ----->  Ã‰ o vertice antecessor ou pai do vertice que esta sendo descoberto
+discovery ------->  Ã‰ o momento no qual o vertice Ã© descoberto
+finish ---------->  Ã‰ o tempo de termino da descoberta do vertice e dos seus descendentes
 time ------------>  Incremento para definir o discovery e o finish
 */
 
@@ -19,7 +19,7 @@ time ------------>  Incremento para definir o discovery e o finish
 using namespace std;
 
 map<string,int> color;
-vector< vector <int> > graph; // Criando a lista de adjacência 
+vector< vector <int> > graph; // Criando a lista de adjacÃªncia 
 int *visited; // Definindo se ele 
 int *predecessor; // o pai do vertice que esta sendo visitado
 int *discovery; // momento de descoberta
@@ -44,7 +44,7 @@ void DFS_visit(int current_vertex){ // Verifica se os vertices foram visitados, 
 	for(int i = 0; i < graph[current_vertex].size(); i++){ // verificando se seus descendentes ja foram visitados
 		if(visited[graph[current_vertex][i]] == color["white"]){
 			predecessor[graph[current_vertex][i]] = current_vertex;
-            DFS_visit(graph[current_vertex][i]); // recursividade até o ultimo descendente do vertice
+            DFS_visit(graph[current_vertex][i]); // recursividade atÃ© o ultimo descendente do vertice
 		}
 	}
 	visited[current_vertex] = color["black"];
@@ -92,7 +92,7 @@ int main(){
     } 
     DFS(vertex_start);
     
-// Abaixo está a representação do grafo com a distancia do vertice i até o vertice inicial e seu pai
+// Abaixo estÃ¡ a representaÃ§Ã£o do grafo com a distancia do vertice i atÃ© o vertice inicial e seu pai
    	cout<<"Vertex     Distance to parent     Parent"<<endl;
     for(int i = 0; i < reserve_graph; i++){
         cout<<"   "<<i<<"              "<<discovery[i]<<"                "<<predecessor[i]<<endl<<endl;
